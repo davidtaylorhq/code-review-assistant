@@ -37,7 +37,7 @@ export default Component.extend({
   commitUrl(posts) {
     if (posts[0]) {
       const matches = posts[0].cooked.match(
-        /<a href="(https:\/\/github\.com\/.*)">(<small>)?GitHub(<\/small>)?<\/a>/
+        /<a href="(https:\/\/github\.com\/.*)".*>(<small>)?GitHub(<\/small>)?<\/a>/
       );
 
       if (matches) {
