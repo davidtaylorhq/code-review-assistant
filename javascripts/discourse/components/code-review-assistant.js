@@ -33,8 +33,12 @@ export default Component.extend({
     return !!repoName;
   },
 
-  @discourseComputed("model.postStream.posts.[]")
-  commitUrl(posts) {
+  @discourseComputed("model.postStream.posts.[]", "shouldDisplay")
+  commitUrl(posts, shouldDisplay) {
+    if (!shouldDisplay) {
+      return;
+    }
+
     if (posts[0]) {
       const matches = posts[0].cooked.match(
         /<a href="(https:\/\/github\.com\/.*?)".*>(<small>)?GitHub(<\/small>)?<\/a>/
