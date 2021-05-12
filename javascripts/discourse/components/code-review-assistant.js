@@ -20,6 +20,7 @@ export default Component.extend({
     if (
       model &&
       model.category &&
+      model.category.custom_fields &&
       model.category.custom_fields["GitHub Repo Name"]
     ) {
       return model.category.custom_fields["GitHub Repo Name"];
